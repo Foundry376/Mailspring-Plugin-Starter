@@ -4,11 +4,13 @@ This folder contains a sample plugin for Mailspring that adds components to the 
 
 ## Building a Plugin
 
-Copy or symlink this project into ~/Library/Application Support/Mailspring/packages on MacOS, or the corresponding location on Windows and Linux. (You can find this directory by going to Developer > Show Mailsync Logs in Mailspring).
+Copy or symlink this project into `~/Library/Application Support/Mailspring/packages` on MacOS, or the corresponding location on Windows and Linux. (You can find this directory by going to _Developer > Show Mailsync Logs_ in Mailspring).
+
+You can rename this directory and change the `name` field of `package.json` to rename your plugin. Keep in mind that plugins are like node modules and the names cannot contain spaces!
 
 To get started, run `npm install` in your plugin's directory and then `npm run-script build` to compile the `src` folder into the `lib` folder. To see your changes in Mailspring, quit and relaunch the app OR open the developer tools and reload the app's main window.
 
-For documentation of how to build plugins, check out [https://foundry376.github.io/Mailspring/](https://foundry376.github.io/Mailspring/) for (slightly outdated) information and also have a look at the many plugins that ship within the core app: [https://github.com/Foundry376/Mailspring/tree/master/app/internal_packages](https://github.com/Foundry376/Mailspring/tree/master/app/internal_packages)
+For documentation of how to build plugins, check out [https://foundry376.github.io/Mailspring/](https://foundry376.github.io/Mailspring/) for (slightly outdated) information and also have a look at the many plugins that ship within the core app: [https://github.com/Foundry376/Mailspring/tree/master/app/internal_packages](https://github.com/Foundry376/Mailspring/tree/master/app/internal_packages). Some of the bundled plugins, like `composer-translate`, `composer-templates`, and `phishing-detection` are great starting points!
 
 ## Shipping a Plugin
 
