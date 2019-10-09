@@ -1,0 +1,25 @@
+{
+  "name": "sample",
+  "main": "./lib/main",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "engines": {
+    "mailspring": ">=1.6.3"
+  },
+  "windowTypes": {
+    "default": true,
+    "composer": true
+  },
+  "description": "Enter a description of your package!",
+  "devDependencies": {
+    "@types/react": "^16.7.22",
+    "typescript": "^3.6.3"
+  },
+  "license": "MIT"
+}

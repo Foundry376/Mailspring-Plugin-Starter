@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "jsx": "react",
+    "target": "es2017",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "lib": ["es2017", "dom", "esnext.array"],
+    "inlineSourceMap": true,
+    "outDir": "lib",
+    "baseUrl": "src",
+    "typeRoots": ["./types/"]
+  }
+}
