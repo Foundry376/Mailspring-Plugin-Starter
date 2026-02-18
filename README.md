@@ -12,6 +12,29 @@ To get started, run `npm install` in your plugin's directory and then `npm run-s
 
 For documentation of how to build plugins, check out [https://foundry376.github.io/Mailspring/](https://foundry376.github.io/Mailspring/) for (slightly outdated) information and also have a look at the many plugins that ship within the core app: [https://github.com/Foundry376/Mailspring/tree/master/app/internal_packages](https://github.com/Foundry376/Mailspring/tree/master/app/internal_packages). Some of the bundled plugins, like `composer-translate`, `composer-templates`, and `phishing-detection` are great starting points!
 
+## Mailspring-specific package.json Options
+
+### `windowTypes`
+
+The `windowTypes` field controls which Mailspring windows your plugin is loaded into. Each key is a window type and the value should be `true` to opt in. Available window types:
+
+- `default` — the primary application window (mail list, message viewer, sidebar, etc.)
+- `composer` — the composer window when composing a new message
+- `thread-popout` — a thread viewed in its own separate window
+- `calendar` — the freestanding calendar window
+
+If `windowTypes` is omitted, the plugin will not be loaded in any window. Most plugins only need `default`; only include additional window types if your plugin registers components or functionality relevant to those windows.
+
+### `syncInit`
+
+By default, Mailspring delays loading plugins by ~2 seconds after launch so that the core UI can appear quickly. Setting `syncInit: true` in your `package.json` causes the plugin to activate immediately on startup instead:
+
+```json
+"syncInit": true
+```
+
+Use this only if your plugin must be active before the UI is usable (for example, if it registers a data store or API that other components depend on at startup). Unnecessary use of `syncInit` will slow down Mailspring's launch time.
+
 ## Shipping a Plugin
 
 Mailspring does not transpile the source code in your plugin when it runs - it expects that your JSX files, TypeScript, etc. has already been converted to plain ES2017 JavaScript. To give your plugin to other people, you should commit the `lib` directory so that they can download the repository, put it in place via the "Install a Plugin..." menu item in Mailspring, and be done.
